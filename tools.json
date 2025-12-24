@@ -1,0 +1,85 @@
+{
+  "tools": [
+    {
+      "slug": "file-counter-pro",
+      "name": "File Counter Pro",
+      "category": "Files",
+      "description": "Đếm file theo folder + xuất Excel Overview/Summary/Detail.",
+      "latestVersion": "1.0.0",
+      "manifestUrl": "/manifest/file-counter-pro.json",
+      "docsUrl": "/docs/file-counter-pro.html"
+    },
+    {
+      "slug": "image-folder-renamer",
+      "name": "Image Folder Renamer",
+      "category": "Images",
+      "description": "Sắp xếp ảnh theo diện tích, rename theo thứ tự trong từng folder con.",
+      "latestVersion": "1.0.0",
+      "manifestUrl": "/manifest/image-folder-renamer.json",
+      "docsUrl": "/docs/image-folder-renamer.html"
+    },
+    {
+      "slug": "make-folder-by-filename",
+      "name": "Make Folder By Filename",
+      "category": "Files",
+      "description": "Tạo thư mục theo tên file và move file vào đúng thư mục.",
+      "latestVersion": "1.0.0",
+      "manifestUrl": "/manifest/make-folder-by-filename.json",
+      "docsUrl": "/docs/make-folder-by-filename.html"
+    },
+    {
+      "slug": "excel-link-downloader",
+      "name": "Excel Link Downloader",
+      "category": "Excel",
+      "description": "Tải ảnh/PDF từ link trong Excel (resume + report).",
+      "latestVersion": "1.0.0",
+      "manifestUrl": "/manifest/excel-link-downloader.json",
+      "docsUrl": "/docs/excel-link-downloader.html"
+    },
+    {
+      "slug": "excel-id-folder-checker",
+      "name": "Excel ID Folder Checker",
+      "category": "Excel",
+      "description": "Đối chiếu ID trong Excel với folder ảnh và xuất báo cáo.",
+      "latestVersion": "1.0.0",
+      "manifestUrl": "/manifest/excel-id-folder-checker.json",
+      "docsUrl": "/docs/excel-id-folder-checker.html"
+    },
+    {
+      "slug": "folder-rename-by-id",
+      "name": "Folder Rename By ID",
+      "category": "Files",
+      "description": "Đổi tên folder theo mapping/ID từ Excel/CSV.",
+      "latestVersion": "1.0.0",
+      "manifestUrl": "/manifest/folder-rename-by-id.json",
+      "docsUrl": "/docs/folder-rename-by-id.html"
+    },
+    {
+      "slug": "dynamic-filter-mapper",
+      "name": "Dynamic Filter Mapper",
+      "category": "Excel",
+      "description": "Lọc/mapping dữ liệu theo điều kiện, xuất file kết quả an toàn (atomic write).",
+      "latestVersion": "1.0.0",
+      "manifestUrl": "/manifest/dynamic-filter-mapper.json",
+      "docsUrl": "/docs/dynamic-filter-mapper.html"
+    },
+    {
+      "slug": "folder-filter-uploader",
+      "name": "Folder Filter Uploader",
+      "category": "Files",
+      "description": "Lọc/copy/move folder theo danh sách ID (phục vụ upload).",
+      "latestVersion": "1.0.0",
+      "manifestUrl": "/manifest/folder-filter-uploader.json",
+      "docsUrl": "/docs/folder-filter-uploader.html"
+    },
+    {
+      "slug": "image-convert-png-pro",
+      "name": "Image Convert PNG Pro",
+      "category": "Images",
+      "description": "Convert ảnh nhiều định dạng sang PNG, giữ cấu trúc thư mục, có báo cáo lỗi.",
+      "latestVersion": "1.0.0",
+      "manifestUrl": "/manifest/image-convert-png-pro.json",
+      "docsUrl": "/docs/image-convert-png-pro.html"
+    }
+  ]
+}

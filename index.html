@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tool Portal</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin: 0; background:#fafafa; color:#111; }
+    header { padding: 20px 24px; background: white; border-bottom:1px solid #eee; }
+    h1 { margin: 0; font-size: 22px; }
+    .sub { margin-top: 6px; color:#555; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 18px 24px 32px; }
+    .controls { display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; }
+    input, select { padding: 10px 12px; border-radius: 10px; border:1px solid #ddd; background:white; }
+    input { flex: 1; min-width: 280px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; margin-top: 16px; }
+    .card { background:white; border:1px solid #eee; border-radius: 14px; padding: 16px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+    .top { display:flex; justify-content:space-between; gap:10px; }
+    .name { font-weight: 700; }
+    .meta { font-size: 12px; color:#666; margin-top:2px; }
+    .ver { font-size: 12px; white-space:nowrap; color:#333; }
+    .desc { color:#444; margin: 10px 0 14px; }
+    a.btn { display:inline-block; padding: 8px 10px; border:1px solid #ddd; border-radius: 10px; text-decoration:none; color:#111; }
+    footer { margin-top: 22px; color:#777; font-size: 12px; }
+    code { background:#f2f2f2; padding:2px 4px; border-radius:6px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap" style="padding:0 24px;">
+      <h1>Tool Portal</h1>
+      <div class="sub">Cổng tải tool nội bộ (Level 2): portal + version + manifest + auto-update check.</div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="controls">
+      <input id="q" placeholder="Search tool (name, slug, description)..." />
+      <select id="cat"></select>
+    </div>
+
+    <div id="grid" class="grid"></div>
+
+    <footer>
+      Mẹo: Mỗi tool đọc manifest tại <code>/manifest/&lt;slug&gt;.json</code> để kiểm tra phiên bản mới.
+    </footer>
+  </div>
+
+<script>
+async function load() {
+  const res = await fetch('/tools.json', {cache:'no-store'});
+  const data = await res.json();
+  return data.tools || [];
+}
+
+function uniqCategories(tools) {
+  const s = new Set(tools.map(t => t.category || 'Other'));
+  return ['All', ...Array.from(s).sort()];
+}
+
+function render(tools) {
+  const q = (document.getElementById('q').value || '').trim().toLowerCase();
+  const cat = document.getElementById('cat').value || 'All';
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+
+  const filtered = tools.filter(t => {
+    const okCat = (cat === 'All') || (t.category === cat);
+    const txt = ((t.slug||'') + ' ' + (t.name||'') + ' ' + (t.description||'')).toLowerCase();
+    const okQ = (!q) || txt.includes(q);
+    return okCat && okQ;
+  });
+
+  for (const t of filtered) {
+    const el = document.createElement('div');
+    el.className = 'card';
+    el.innerHTML = `
+      <div class="top">
+        <div>
+          <div class="name">${t.name}</div>
+          <div class="meta">${t.slug} • ${t.category}</div>
+        </div>
+        <div class="ver">v${t.latestVersion}</div>
+      </div>
+      <div class="desc">${t.description || ''}</div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn" href="${t.docsUrl}">Docs</a>
+        <a class="btn" href="${t.manifestUrl}">Manifest</a>
+      </div>
+    `;
+    grid.appendChild(el);
+  }
+}
+
+(async () => {
+  const tools = await load();
+
+  const catSelect = document.getElementById('cat');
+  for (const c of uniqCategories(tools)) {
+    const opt = document.createElement('option');
+    opt.value = c;
+    opt.textContent = c;
+    catSelect.appendChild(opt);
+  }
+
+  document.getElementById('q').addEventListener('input', () => render(tools));
+  document.getElementById('cat').addEventListener('change', () => render(tools));
+
+  render(tools);
+})();
+</script>
+</body>
+</html>

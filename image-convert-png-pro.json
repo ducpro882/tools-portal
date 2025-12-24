@@ -1,0 +1,13 @@
+{
+  "slug": "image-convert-png-pro",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": "2025-12-24",
+    "downloadUrl": "PASTE_GITHUB_RELEASE_DOWNLOAD_URL_HERE",
+    "sha256": "PASTE_SHA256_HERE",
+    "releaseNotes": [
+      "Initial release"
+    ]
+  },
+  "minimumSupportedVersion": "1.0.0"
+}
