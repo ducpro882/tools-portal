@@ -231,10 +231,26 @@
 </footer>
 
 <script>
-async function loadTools() {
-  const res = await fetch('tools.json', { cache: 'no-store' });
-  const data = await res.json();
-  return data.tools || [];
+async function fetchJSON(url) {
+  const res = await fetch(url, { cache: 'no-store' });
+  return res.json();
+}
+
+async function loadToolsWithManifest() {
+  const toolsData = await fetchJSON('tools.json');
+  const tools = toolsData.tools || [];
+
+  for (const t of tools) {
+    try {
+      const m = await fetchJSON(t.manifestUrl);
+      t.latestVersion = m.latest.version;
+      t.publishedAt = m.latest.publishedAt;
+      t.downloadUrl = m.latest.downloadUrl;
+    } catch (e) {
+      t.downloadUrl = null;
+    }
+  }
+  return tools;
 }
 
 function groupByCategory(tools) {
@@ -280,12 +296,25 @@ function render(tools) {
 
       card.innerHTML = `
         <div class="badge">ACTIVE</div>
+
         <div class="card-title">${t.name}</div>
-        <div class="card-meta">${t.slug} · v${t.latestVersion}</div>
+        <div class="card-meta">
+          ${t.slug} · v${t.latestVersion || 'N/A'}
+        </div>
+
         <div class="card-desc">${t.description}</div>
+
+        <div class="card-meta">
+          Last updated: ${t.publishedAt || '—'}
+        </div>
+
         <div class="card-footer">
-          <a class="btn" href="${t.docsUrl}">Docs</a>
-          <a class="btn primary" href="${t.manifestUrl}">Update</a>
+          <a class="btn" href="${t.docsUrl}">📘 Read Docs</a>
+          ${
+            t.downloadUrl
+              ? `<a class="btn primary" href="${t.downloadUrl}">⬇ Download</a>`
+              : `<span class="btn">Unavailable</span>`
+          }
         </div>
       `;
 
@@ -298,7 +327,7 @@ function render(tools) {
 }
 
 (async () => {
-  const tools = await loadTools();
+  const tools = await loadToolsWithManifest();
 
   const categories = [...new Set(tools.map(t => t.category))];
   const select = document.getElementById('category');
@@ -315,6 +344,7 @@ function render(tools) {
   render(tools);
 })();
 </script>
+
 
 </body>
 </html>
