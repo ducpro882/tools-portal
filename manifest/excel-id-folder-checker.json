@@ -3,10 +3,8 @@
   "latest": {
     "version": "1.0.0",
     "publishedAt": "2025-12-29",
-    "downloadUrl": https://github.com/ducpro882/tools-binaries/releases/download/excel-id-folder-checker_v1.0.0/excel-id-folder-checker_v1.0.0_win64.exe
-,
-    "sha256": 5F29FB8C9BA7991FAEEFB6EC08E5648B418B88494129CAA8D31157E774910145
-,
+    "downloadUrl": "https://github.com/ducpro882/tools-binaries/releases/download/excel-id-folder-checker_v1.0.0/excel-id-folder-checker_v1.0.0_win64.exe",
+    "sha256": "5F29FB8C9BA7991FAEEFB6EC08E5648B418B88494129CAA8D31157E774910145",
     "releaseNotes": [
       "Initial release"
     ]
