@@ -2,9 +2,9 @@
   "slug": "image-folder-renamer",
   "latest": {
     "version": "1.0.0",
-    "publishedAt": "2025-12-24",
-    "downloadUrl": "PASTE_GITHUB_RELEASE_DOWNLOAD_URL_HERE",
-    "sha256": "PASTE_SHA256_HERE",
+    "publishedAt": "2025-12-29",
+    "downloadUrl": "https://github.com/ducpro882/tools-binaries/releases/download/image-folder-renamer_v1.0.0/image-folder-renamer_v1.0.0_win64.exe",
+    "sha256": "FB03B8C1997291ACD5109EE82CCBE2AD62B8DDE52631A9EFA40F0557A99BAE8F",
     "releaseNotes": [
       "Initial release"
     ]
