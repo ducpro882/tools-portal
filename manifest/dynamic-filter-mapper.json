@@ -2,9 +2,9 @@
   "slug": "dynamic-filter-mapper",
   "latest": {
     "version": "1.0.0",
-    "publishedAt": "2025-12-24",
-    "downloadUrl": "PASTE_GITHUB_RELEASE_DOWNLOAD_URL_HERE",
-    "sha256": "PASTE_SHA256_HERE",
+    "publishedAt": "2025-12-29",
+    "downloadUrl": "https://github.com/ducpro882/tools-binaries/releases/download/dynamic-filter-mapper_v1.0.0/dynamic-filter-mapper_v1.0.0_win64.exe",
+    "sha256": "8D2585EF5FC80F679B5CA8CF6B90EEDFC0F72F187B463A877A862B44236D14A2",
     "releaseNotes": [
       "Initial release"
     ]
