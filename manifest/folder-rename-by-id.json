@@ -2,9 +2,9 @@
   "slug": "folder-rename-by-id",
   "latest": {
     "version": "1.0.0",
-    "publishedAt": "2025-12-24",
-    "downloadUrl": "PASTE_GITHUB_RELEASE_DOWNLOAD_URL_HERE",
-    "sha256": "PASTE_SHA256_HERE",
+    "publishedAt": "2025-12-29",
+    "downloadUrl": "https://github.com/ducpro882/tools-binaries/releases/download/folder-rename-by-id_v1.0.0/folder-rename-by-id_v1.0.0_win64.exe",
+    "sha256": "F68961457FF01DA215DF0B2EB95CBA4131F98F4F257795FED9947DA9AA4ED5DD",
     "releaseNotes": [
       "Initial release"
     ]
