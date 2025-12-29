@@ -2,9 +2,9 @@
   "slug": "make-folder-by-filename",
   "latest": {
     "version": "1.0.0",
-    "publishedAt": "2025-12-24",
-    "downloadUrl": "PASTE_GITHUB_RELEASE_DOWNLOAD_URL_HERE",
-    "sha256": "PASTE_SHA256_HERE",
+    "publishedAt": "2025-12-29",
+    "downloadUrl": "https://github.com/ducpro882/tools-binaries/releases/download/make-folder-by-filename_v1.0.0/make-folder-by-filename_v1.0.0_win64.exe",
+    "sha256": "9505C2414B011EB94986F630FBD0D0F8664746DAC155F87BC3D6D7ACD68B0B9E",
     "releaseNotes": [
       "Initial release"
     ]
